@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benim Dünyam | Kişisel Web Sitem</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: white;
+    background: #080817;
+    overflow-x: hidden;
+}
+
+/* HAREKETLİ ARKA PLAN */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(circle at 20% 30%, #4b168b 0%, transparent 35%),
+      radial-gradient(circle at 80% 20%, #102f8b 0%, transparent 35%),
+      radial-gradient(circle at 50% 90%, #7b145d 0%, transparent 40%),
+      #080817;
+    animation: bgMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove {
+    from { filter: hue-rotate(0deg); }
+    to { filter: hue-rotate(45deg); }
+}
+
+.glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: #812cff;
+    filter: blur(150px);
+    opacity: .25;
+    top: 20%;
+    left: -100px;
+    z-index: -1;
+    animation: float 8s infinite alternate;
+}
+
+@keyframes float {
+    to {
+        transform: translate(80vw, 200px);
+    }
+}
+
+/* NAVBAR */
+
+nav {
+    width: 90%;
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #bd8aff;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #bd8aff;
+}
+
+/* ANA ALAN */
+
+.hero {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.tag {
+    padding: 9px 20px;
+    border: 1px solid #a45cff;
+    color: #d2aaff;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 25px;
+    background: rgba(153, 75, 255, .12);
+}
+
+.hero h1 {
+    font-size: clamp(40px, 8vw, 85px);
+    font-weight: 800;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #fff, #c084fc, #65c8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: appear 1.2s ease;
+}
+
+.hero p {
+    max-width: 600px;
+    color: #b9b9cc;
+    margin: 25px 0;
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* BUTONLAR */
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    padding: 14px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.primary {
+    color: white;
+    background: linear-gradient(90deg, #852dff, #3d78ff);
+    box-shadow: 0 0 25px #792cff66;
+}
+
+.secondary {
+    border: 1px solid #777;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px #923fff99;
+}
+
+/* KARTLAR */
+
+section {
+    width: 90%;
+    max-width: 1100px;
+    margin: 70px auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 35px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.12);
+    backdrop-filter: blur(15px);
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #a45cff;
+    box-shadow: 0 10px 40px #812cff30;
+}
+
+.card .icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    color: #d0a3ff;
+}
+
+.card p {
+    color: #aaaabc;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* HAKKIMDA */
+
+.about {
+    text-align: center;
+    padding: 50px 30px;
+    background: rgba(255,255,255,.05);
+    border-radius: 25px;
+    border: 1px solid #ffffff18;
+}
+
+.about p {
+    max-width: 700px;
+    margin: auto;
+    color: #b9b9cc;
+    line-height: 2;
+}
+
+/* İLETİŞİM */
+
+.contact {
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.contact a {
+    display: inline-block;
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border: 1px solid #a45cff;
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.contact a:hover {
+    background: #812cff;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #77778e;
+    border-top: 1px solid #ffffff15;
+    font-size: 13px;
+}
+
+/* MOBİL */
+
+@media(max-width:600px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 65vh;
+    }
+
+    .section-title {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="glow"></div>
+
+<nav>
+    <div class="logo">MY WORLD ✦</div>
+    <div>
+        <a href="#home">Ana Sayfa</a>
+        <a href="#about">Hakkımda</a>
+        <a href="#features">Özellikler</a>
+        <a href="#contact">İletişim</a>
+    </div>
+</nav>
+
+<div class="hero" id="home">
+    <div class="tag">✦ KENDİME AİT SİTEME HOŞGELDİNİZ ✦</div>
+
+    <h1>Benim Dünyama<br>Hoş Geldin.</h1>
+
+    <p>
+        Burası benim dünyam. Kendi tarzım, kendi kurallarım
+        ve kendi hikayem. Sıradan olmak yerine farklı olmayı
+        tercih ediyorum. HERGÜN DAHA FAZLA İŞ YAPIP KENDİMİ GELİŞTİRİLMELİYİM
+    </p>
+
+    <div class="buttons">
+        <a href="#about" class="btn primary">Beni Tanı →</a>
+        <a href="#contact" class="btn secondary">İletişim</a>
+    </div>
+</div>
+
+<section id="features">
+    <h2 class="section-title">✧ Benim Dünyam ✧</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">👑</div>
+            <h3>Kendi Tarzım</h3>
+            <p>Kimseyi taklit etmem. Kendime ait bir tarzım ve yolum var BU YOLDAN ŞAŞMAM. </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🚀</div>
+            <h3>Hedeflerim</h3>
+            <p>Hayallerimin peşinden gider, her gün daha ileriye bakarım.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h3>Enerjim</h3>
+            <p>Her zaman yeni şeyler öğrenmeye ve kendimi geliştirmeye hazırım. VE FUTBOL OYNARIM</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌌</div>
+            <h3>Hayallerim</h3>
+            <p>Benim için sınırlar sadece aşılmayı bekleyen çizgilerdir Ve hayallerimizin peşinden gidiyorum
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="about">
+    <div class="about">
+        <h2 class="section-title">Ben Kimim?</h2>
+        <p>
+            Merhaba! Ben bu sitenin sahibiyim.
+            Burası kendimi ifade edebileceğim özel alanım.
+            İlgi alanlarım, hedeflerim ve sevdiğim şeyler
+            burada bir araya geliyor. BURDA KENDİ WEB SİTEM VAR VE YENİ OLUŞTURDUM
+            Bu site benim dijital dünyam! VE SULTANAHMET ÖĞRENCİSİYİM FENERBAHÇELİYİM
+        </p>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="contact">
+        <h2 class="section-title">Benimle İletişime Geç ********* ***** ****</h2>
+        <p style="color:#aaa;margin-bottom:20px">
+            Sosyal medya hesaplarımı buraya ekleyebilirim.
+        </p>
+
+        <a href="https://instagram.com/" target="_blank">📸 Instagram</a>
+        <a href="https://discord.com/" target="_blank">🎮 Discord</a>
+        <a href="mailto:ornek@mail.com">✉️ E-posta</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 MY WORLD — Tüm hakları saklıdır.
+    <br><br>
+    TEŞEKKÜR EDERİM SAYFAMDA OLDUĞUNUZ İÇİN
+</footer>
+
+<script>
+    // Sayfa açılış animasyonu
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.opacity = "0";
+
+        setTimeout(() => {
+            document.body.style.transition = "opacity 1.2s";
+            document.body.style.opacity = "1";
+        }, 100);
+    });
+
+    // Kartlara hafif hareket efekti
+    document.querySelectorAll(".card").forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            card.style.background =
+                `radial-gradient(circle at ${x}px ${y}px,
+                rgba(145,70,255,.2), rgba(255,255,255,.04))`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.background = "rgba(255,255,255,.055)";
+        });
+    });
+</script>
+
+</body>
+</html>
